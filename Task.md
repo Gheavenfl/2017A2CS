@@ -1,0 +1,12 @@
+# Chapter 25: Recursion
+
+
+1 | *X(19)* | *False* | |
+3 | *X(4)* | *False* | |
+4 | *X(2)* | *False* | |
+5 | *X(1)* | *True* | 1 |
+(4) | *X(2)* | *False* | 0 |
+(3) | *X(4)* | *False* | 0 |
+(2) | *X(9)* | *False* | 1 |
+(1) | *X(19)* | *False* | 1 |
+
