@@ -31,3 +31,37 @@ while i<=60:
     print(seconddisplay(i,n))
     i+=1
 
+class time(object):# To keep track of time itself
+    def __init__(self):
+        self.sec=15
+        self.min=10
+        self.hour=10
+        self.daynight=0
+        self.day=Day[14].date
+    
+    def addtime(self):
+        if self.sec>59:
+            self.sec=0
+            self.min+=1
+        if self.sec<0:
+            self.sec=59
+            self.min-=1
+        if self.min>59:
+            self.min=0
+            self.hour+=1
+        if self.min<0:
+            self.min=59
+            self.hour-=1
+        if self.hour>11:
+            self.hour=0
+            if self.daynight==0:
+                self.daynight=1
+            else:
+                self.daynight=0
+                self.day=Day[Day[self.day-1].rpointer].date
+        if self.hour==-1:
+            self.hour=11
+            if self.daynight==0:
+                self.day=Day[Day[self.day-1].lpointer].date
+            self.daynight=1-self.daynight
+
