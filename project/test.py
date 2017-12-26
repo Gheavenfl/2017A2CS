@@ -65,3 +65,19 @@ class time(object):# To keep track of time itself
                 self.day=Day[Day[self.day-1].lpointer].date
             self.daynight=1-self.daynight
 
+
+def getpos(sec,min,hour):#To get the postion of hour, minute, second hand of the clock
+    global central
+    s=math.pi/30
+    m=math.pi/360
+    h=math.pi/6
+    e=math.pi/1800
+    sy=int(central.y-220*math.cos(sec*s))
+    sx=int(220*math.sin(sec*s)+central.x)
+    my=int(central.y-(150*math.cos(min*s+sec*e)))
+    mx=int(150*math.sin(min*s+sec*e)+central.x)
+    hy=int(central.y-(100*math.cos(hour*h+min*m)))
+    hx=int(100*math.sin(hour*h+min*m)+central.x)
+    return sx,sy,mx,my,hx,hy
+
+
