@@ -1,0 +1,60 @@
+How to write class
+
+class Listnode (object):
+    def __init__(self, data, pointer):
+        self.data = data
+        self.pointer = pointer
+
+obstructed data type:
+
+TYPE 
+TDirections = (North,East,South,West)
+TDays = (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
+
+DECLARE Direction: Direction
+DECLARE StartDay: TDays
+
+
+TYPE
+TMypointer = ^<Type name>
+DECLARE MyPointer : TMyPointer
+
+
+TYPE
+TEmployeeRecord
+	DECLARE EmplyeeFirstName : STRING
+	DECLAREE EmployeeFamilyName: STRING
+
+
+Serial file=====First Come First Serve
+Sequential file==Base on a 
+Random access file
+
+
+
+
+Point-to-point network
+
+A bus network(HUB as centural)
+
+a ring network/mesh
+
+
+TCP/IP Suite
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

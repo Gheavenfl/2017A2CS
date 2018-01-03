@@ -57,7 +57,6 @@ def count7(X):
         else:
             return count7(X/10)
 
-
 def count8(X):
     if X==0:
         return 0
