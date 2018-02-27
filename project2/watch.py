@@ -15,8 +15,17 @@ colorpattern=['color0','color0','color0','color0','color0']
 SCREEN_SIZE = (1080,900)
 font1 = pygame.font.SysFont('arial', 50)
 central=Vector2(540,370)
-#file1 = pygame.image.load("Rolex_logo.jpeg").convert()
 n=[540, 70, 690, 110, 799, 219, 840, 370, 799, 520, 690, 629, 540, 670, 390, 629, 280, 520, 240, 370, 280, 220, 389, 110, 539, 70]
+backgroundmusic="paulmccartneyandwingssillylovesongs.ogg"
+pygame.mixer.init()
+pygame.mixer.music.load(backgroundmusic)
+#pygame.mixer.music.play()
+from time import strftime,gmtime
+H=int(time.strftime("%H"))
+M=int(time.strftime("%M"))
+S=int(time.strftime("%S"))
+H=abs(H-12)
+
 
 def seconddisplay(X,Y):#To cauculate when should the mark change color due to the arrival of second
     a=len(Y)
@@ -45,26 +54,13 @@ def getpos(sec,min,hour):#To get the postion of hour, minute, second hand of the
     hx=int(100*math.sin(hour*h+min*m)+central.x)
     return sx,sy,mx,my,hx,hy
 
-class daylist(object):
-    def __init__(self,date,lpointer,rpointer):
-        self.date=date
-        self.lpointer=lpointer
-        self.rpointer=rpointer
-
-Day=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-for i in range(31):
-    Day[i]=daylist(i+1,i-1,i+1)
-Day[30].rpointer=0
-Day[0].lpointer=30
-
 class time(object):# To keep track of time itself
     def __init__(self):
-        self.sec=15
-        self.min=10
-        self.hour=10
-        self.daynight=0
-        self.day=Day[14].date
+        self.sec=S
+        self.min=M
+        self.hour=H
     
+        
     def addtime(self):
         if self.sec>59:
             self.sec=0
@@ -80,60 +76,58 @@ class time(object):# To keep track of time itself
             self.hour-=1
         if self.hour>11:
             self.hour=0
-            if self.daynight==0:
-                self.daynight=1
-            else:
-                self.daynight=0
-                self.day=Day[Day[self.day-1].rpointer].date
-        if self.hour==-1:
+        if self.hour<0:
             self.hour=11
-            if self.daynight==0:
-                self.day=Day[Day[self.day-1].lpointer].date
-            self.daynight=1-self.daynight
 
 
 class record(object):
     def __init__(self):
-        self.sec=0
-        self.min=0
         self.hour=0
-        self.daynight=0
-        self.color=(176,196,222)
     
     def addtime(self):
-        if self.sec>=60:
-            self.sec=0
-            self.min+=1
-        if self.min>=60:
-            self.min=0
-            self.hour+=1
-
-def colorchange(self):
-    if colorchange==True:
-        self.color=(112,128,144)
-
+        if self.hour>11:
+            self.hour=0
+        if self.hour==-1:
+            self.hour=11
 
 c=time()
-alarm=record()
+a=record()
 
 while True:
     for event in pygame.event.get():
         if event.type == QUIT:
             exit()
-    pressed_keys = pygame.key.get_pressed()
     screen.fill([176,196,222])
-    text = font1.render(str(c.day),True,(255,255,255))
-    display= font1.render(("am"),True,(255,255,255))
-    displayy= font1.render(("pm"),True,(255,255,255))
+#    text = font1.render(str(c.day),True,(255,255,255))
+#    display= font1.render(("am"),True,(255,255,255))
+#    displayy= font1.render(("pm"),True,(255,255,255))
+    c.sec+=1
+    if c.hour==a.hour and pygame.mixer.music.get_busy()==False:
+        pygame.mixer.music.play()
+    if event.type == pygame.KEYDOWN: #键被按下
+        if event.key == pygame.K_LEFT:
+            c.min-=1
+            c.sec-=1
+        elif event.key == pygame.K_RIGHT:
+            c.min+=1
+            c.sec-=1
+        elif event.key == pygame.K_UP:
+            a.hour+=1
+        elif event.key == pygame.K_DOWN:
+            a.hour-=1
     c.addtime()
-    c.sec+=1# add up one second each loop
+    a.addtime()
     seconddisplay(c.sec,n)
     sx,sy,mx,my,hx,hy=getpos(c.sec,c.min,c.hour)
-    clock.tick(10)# set the frequency
+    aa,ab,ac,ad,ax,ay=getpos(0,0,a.hour)
+    clock.tick(1)# set the frequency
     pygame.draw.line(screen,(138,43,226),central,(mx,my),20)
     pygame.draw.line(screen,(138,43,226),central,(hx,hy),30)
+    pygame.draw.line(screen,(138,43,226),central,(sx,sy),10)
     pygame.draw.circle(screen,(255,218,185),(mx,my),20)
     pygame.draw.circle(screen,(255,218,185),(hx,hy),20)
+    pygame.draw.circle(screen,(255,218,0),(sx,sy),15)
+    pygame.draw.circle(screen,(255,218,0),(ax,ay),15)
     pygame.draw.circle(screen,(138,43,226),(540,370),16)
     pygame.draw.circle(screen,(138,43,226),((540, 70)),14)
     pygame.draw.circle(screen,(138,43,226),((690, 110)),14)
@@ -151,10 +145,12 @@ while True:
     tx,ty=seconddisplay(c.sec,n)
     if tx+ty!=0:#determine whether to change a mark's color
         pygame.draw.circle(screen,(255,218,185),seconddisplay(c.sec,n),14)
-    if c.daynight==0:
-        screen.blit(display,(470,400))
-    if c.daynight==1:
-        screen.blit(displayy,(470,400))
-    screen.blit(text,(570,400))
+        #    if c.daynight==0:
+        #      screen.blit(display,(470,400))
+        #  if c.daynight==1:
+        #   screen.blit(displayy,(470,400))
+        # screen.blit(text,(570,400))
     pygame.display.update()
+    print c.hour,a.hour
+
 
