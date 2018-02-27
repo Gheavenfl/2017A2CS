@@ -8,16 +8,16 @@ class Listnode (object):
 obstructed data type:
 
 TYPE 
-TDirections = (North,East,South,West)
-TDays = (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
+	TDirections = (North,East,South,West)
+	TDays = (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
 
-DECLARE Direction: Direction
-DECLARE StartDay: TDays
+	DECLARE Direction: Direction
+	DECLARE StartDay: TDays
 
 
 TYPE
-TMypointer = ^<Type name>
-DECLARE MyPointer : TMyPointer
+	TMypointer = ^<Type name>
+	DECLARE MyPointer : TMyPointer
 
 
 TYPE
@@ -33,6 +33,10 @@ Random access file
 
 
 
+
+
+
+
 Point-to-point network
 
 A bus network(HUB as centural)
@@ -42,6 +46,34 @@ a ring network/mesh
 
 TCP/IP Suite
 
+Application layer
+Transport layer
+
+
+
+
+
+
+
+Front end analysis
+lexical analysis---seperate code into tokens
+
+symbol table records the name/attributes of the identifier
+
+syntax analysis-- analysis the consturction
+Parse tree
+
+semantic analysis---establish the full meaning of the code
+annotated abstract syntax tree
+
+
+
+syntax diagram/BNF
+
+
+Back-end synthesis stages
+
+optimisation
 
 
 
@@ -50,6 +82,242 @@ TCP/IP Suite
 
 
 
+
+
+
+Complex set instruction/ simplified set instruction computer
+
+RISC:
+
+fewer instructions
+simpler instructions
+small number of instruction formats
+single-cycle instructions whenever possible
+Fixed-length instructions
+only load and store instructions into address memory
+fewer addressing modes
+multiple registers used
+hard-wired computing unit
+pipelining easier
+
+CISC
+
+microprogrammed computing unit
+many types of instructions to address memory
+
+
+pipelining:
+instruction
+memory
+cpu
+
+pipelining
+1    2    3    4    5    6    7    8    9
+1.1  2.1  3.1  4.1  5.1  6.1  7.1  8.1  9.1
+     1.2  2.2  3.2  4.2  5.2  6.2  7.2  8.2
+	  1.3  2.3  3.3  4.3  5.3  6.3  7.3
+
+
+handle interrupts:
+Stall
+
+
+
+SIMD
+MIMD
+SISD
+MISD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Malware
+
+Virus
+
+Trojan Horse
+
+Worm
+
+Phising
+
+Spyware
+
+Bot 
+
+Logic Bomb
+
+
+
+
+
+
+
+Authentication: The receiver must be certain of the identity of the sender
+
+Confidentiality: Only the intended recipient can decrypt the data
+
+Integrity: The cipher text can not be modified by others
+
+Non-repudiation: The receiver can not deny the involvement transmutation 
+
+Availability: Nothing  can prevent the receiver from getting the data
+
+
+
+
+
+Hash
+
+Table
+
+
+
+
+
+
+
+
+
+
+Give three steps taken by both Computer A and the File server to allow them to transmit their packets successfully.
+
+Both stop transmitting Each uses a random time Wait for time period Check for bus status Attempt to re-transmit
+
+
+
+Adding a switch to the LAN changes its topology. Explain how the use of a switch removes the problem identified in part (c)(i)
+
+Star topology created
+A switch has a number of ports
+Each connects to a single device (using a dedicated cable)
+Switch provides direct transmission/path from device to device Collisions are no longer possible
+There are dedicated links from Computer A to Computer C AND from the Server to Computer D
+
+
+
+
+(a) Name three data items present in a digital certificate.
+
+Serial number
+Certificate Authority that issued certificate
+CA digital signature
+Name of company/organisation/individual/subject/owner owning Certificate
+‘Subject’ public key
+Period during which Certificate is valid 
+
+
+
+
+State the name given to the encrypted message digest.
+
+Digital signature
+
+
+
+Explain the difference between a guest operating system and a host operating system.
+
+Guest operating system:
+An operating system running in a virtual machine // Controls virtual hardware //
+OS is being emulated
+Host operating system:
+The operating system that is actually controlling the physical hardware // the operating system for the physical machine// the OS running the VM software
+Guest OS is running under the Host OS softwareDescribe two possible uses of virtual machines by the company.
+
+Trial/use alternative replacement operating system(s) ...
+Test to identify possible problems
+Much easier to create VM with a new OS than create new computer system
+Trial/use alternative replacement web server software ...
+Test to identify possible problems
+Easier to try alternative new software and new OS combinations
+
+
+
+
+The programmers prefer to debug their programs using an interpreter. Give one possible reason why.
+
+debugging is faster / easier
+// can debug incomplete code // better diagnostics
+
+How to ensure downloaded softwares are authentic
+
+• software is put through hashing algorithm
+• hash total is encrypted with private key (digital signature)
+• software + encrypted hash / digital signature are sent
+• receiver is in possession of sender’s public key
+• the received hash total / digital signature is decrypted with public key
+(SH)
+• the receiver hashes received software (RH)
+• If SH matches RH then software is authentic and has not been altered
+
+
+
+
+Advantage of a seriel file
+
+• no need to re-sort data every time new data is added
+• only a small file so searching will require little processing
+• new records can easily be appended
+
+
+
+Tracker: central server that:
+stores details of other computers that have all / part of file to be downloaded
+// has data on those peers downloading and uploading file
+// shares IP addresses with other clients in swarm allowing them to connect1 1(ii)Seed: peer computer
+that has 100% of file // is uploading downloaded content1 1(iii)
+Swarm: all the connected peer computers
+that have all or part of the file to be downloaded / uploaded // share a torrent1 1
+
+
+
+
+(i) Server
+(ii) Command 
+(iii) Anonymous
+
+Server: central computer
+stores files that are to be downloaded
+Command: user can send action/instruction (or by example, e.g. change directory)
+that are carried out on server Anonymous: allows user to access files
+user does not need to identify themselves to server
+
+
+TYPE WeatherStation
+   DECLARE StationID   : STRING
+   DECLARE Latitude    : REAL
+   DECLARE Temperature : ARRAY[1..15] OF INTEGER
+ENDTYPE
+
+
+
+
+A standalone piece of malicious software that can replicate itself using a network.......................................Use email to attempt to obtain an individual’s confidential data.
+Virus
+
+Worm12(a)(ii)Phishing12(a)(iii)Malicious software that replicates by inserting a copy of itself (1) into a file of data (1)
+
+
+
+
+(ii) Explain how Anna can be sure that it is Bob who has sent the key.
+
+
+Bob sends his digital certificate
+Digital certificate contains Bob’s public key
+Successful decryption of certificate using CA’s public key provides legitimacy 1 mark for any valid point – max 2
 
 
 
