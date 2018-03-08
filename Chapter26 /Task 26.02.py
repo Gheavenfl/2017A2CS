@@ -25,16 +25,23 @@ for i in range(5):
     pickle.dump (Car[i], Carfile)
 Carfile.close()
 
-Carfile=open('Cars.DAT','rb')
+try:
+    Carfile=open('Cars.DAT','rb')
+except IOError:
+    print('File cannot be found')
 ID=str(input('key in the ID of the car you wish to find'))
+try:
+    x = int(ID)
+except ValueError:
+    ID=str(input('Value unvalid, key in the ID of the car you wish to find again'))
 address=Hash(ID)
 Carfile.seek(address)
-ThisCar=pickle.load(Carfile)
+try:
+    ThisCar=pickle.load(Carfile)
+except EOFError:
+    ID=str(input('Value unfound, key in the ID of the car you wish to find again'))
 print (ThisCar.ID,ThisCar.date,ThisCar.insure,ThisCar.owner)
 Carfile.close()
-
-     
-     
 
 
 
