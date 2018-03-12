@@ -28,7 +28,7 @@ class book(libraryitem):
         self.__isrequested = False
             self.__requestedby = O
 
-def getisrequested(self):
+    def getisrequested(self):
     return (self.__isrequested)
     
     def setisrequested(self):

@@ -87,9 +87,6 @@ class cd(libraryitem):
             self.__genre=g
 
 def library(c):
-    global books
-    global borrowers
-    global cds
     global book
     global cd
     global borrower
@@ -99,13 +96,13 @@ def library(c):
         h=input('enter borrower ID')
         d=input('enter itemsonloan')
         e=borrower(a,b,h,d)
-        borrowers=borrowers.append(e)
+        borrowers.append(e)
     if c==2:
         a=input('enter book title')
         b=input('enter writer')
         h=input('enter bookid')
         e=book(a,b,h)
-        books=books.append(e)
+        books.append(e)
     if c==3:
         a=input('enter cd name')
         b=input('enter artist')
@@ -113,7 +110,7 @@ def library(c):
         g=input('enter genre')
         e=cd(a,b,h)
         e.setgenre(g)
-        cds=cds.append(e)
+        cds.append(e)
     if c==4:
         a=input('enter book title')
         b=input('enter borrower name')
@@ -138,6 +135,9 @@ def library(c):
         a=input('enter book title')
         b=input('enter requester name')
         a.setisrequested(self,b)
+    if c==9:
+        for i in range(len(books)):
+            books[i].printdetails()
     if c==99:
         sys.exit()
 
