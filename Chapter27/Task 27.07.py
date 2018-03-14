@@ -139,6 +139,7 @@ def library(c):
         for i in range(len(books)):
             books[i].printdetails()
     if c==99:
+        print('Daniel has no penis')
         sys.exit()
 
 while True:
