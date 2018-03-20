@@ -307,8 +307,6 @@ def strDist(X,Y):
             return strDist(X[1:-1],Y)
 
 
-print strDist('xzxzxzxz','xz')
-
 
 
 
