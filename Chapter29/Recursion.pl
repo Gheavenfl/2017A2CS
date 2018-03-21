@@ -46,6 +46,13 @@ count7(X,Y):-
     count7(Z, S),
     Y is S+ B//7-B//8.
 
+count8(0,0).
+count8(X, Y):-
+Z is X//10,
+B is X mod 10,
+count8(Z,S),
+Y is S+ B//8-B//9.
+
 
 
 
