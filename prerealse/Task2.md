@@ -22,7 +22,6 @@ Weight             | getweight( )/setweight( )
 
 2.2
 inheritence means that one class's parameters is directly passed down to its subclasses
-
 In the last example, computergame and vehicle are the subclasses of toy.
 
 2..3
@@ -69,6 +68,30 @@ In the last example, computergame and vehicle are the subclasses of toy.
             self.__weight=w
             self.__length=l
             
+            def gettype(self):
+            return self.__type
+            
+            def settype(self,type):
+            self.__type=type
+            
+            def getheight(self):
+            return self.__height
+            
+            def setheight(self,id):
+            self.__height=height
+            
+            def getweight(self):
+            return self.__weight
+            
+            def setweight(self,weight):
+            self.__weight=weight
+            
+            def getlength(self):
+            return self.__length
+            
+            def setlength(self,length):
+            self.__setlength=length
+            
             
 2.5
 
@@ -83,13 +106,13 @@ In the last example, computergame and vehicle are the subclasses of toy.
 
     vehicle=[ ]
     computergame=[ ]
-    vehicle.append('red sports car','RSC13',15.00,6,'car',3.3,12.1,0.08)
+    vehicle.append(vehicle('red sports car','RSC13',15.00,6,'car',3.3,12.1,0.08))
     
 2.7
 
     def printdetails(id):
        i=0
-       while toy[i].id!=id:
+       while toy[i].id!=id and i<len(toy)
             i+=1
        Toy[i].printdetails()
         
@@ -99,16 +122,18 @@ In the last example, computergame and vehicle are the subclasses of toy.
     def discount(n):
         n=n/100
         for i in range(len(toy)):
-            toy[i].prince=toy[i].price*n
+            toy[i].setprince(toy[i].getprice()*n)
     
 
 2.9
 
  a bubble sort changes the order of the list one item and another by comparing the two near once at a time.
- a insertion sort does it by finding the approperiate position to insert the item
+ a bubble sort goes from the start of the list to the end  of the list.
+ a insertion sort does it by finding the approperiate position to insert the item.
+ a insertion sort goes from the back of the list to the start of the list.
+ 
  
  2.10
- 
  
     def sort():
         for i in range(1,len(toys)):

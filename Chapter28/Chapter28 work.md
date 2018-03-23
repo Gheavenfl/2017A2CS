@@ -1,0 +1,29 @@
+# Chapter 28 tasks
+
+28.01
+LDM #2
+STO A
+LDM #10
+STO B
+LDD A
+ADD B
+STO C
+LDD A
+DEC B
+STO D
+
+28.02
+LDD A
+CMP #0
+JPE ELSE
+THEN: STO A
+ELSE: ADD #
+STO B
+
+28.03
+LDM #1
+STO Number
+LDM #0
+STO 
+
+
