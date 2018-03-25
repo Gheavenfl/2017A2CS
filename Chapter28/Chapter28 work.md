@@ -24,6 +24,39 @@ STO B
 LDM #1
 STO Number
 LDM #0
-STO 
+STO Total
+LDM #5
+STO Max
+LOOP:
+LDD Number
+ADD Total
+STO Total
+LDD Number
+INC ACC
+CMP Max
+JPN LOOP
+
+28.04
+LDM  -1
+STO Count
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
