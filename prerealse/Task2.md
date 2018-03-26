@@ -15,7 +15,7 @@ Console          | getconsole( )/setconsole( )
 
 Vehicle
 Attributes        | Functions
-Type                | gettype( )/settype( )
+Type:               | gettype( )/settype( )
 Height             | getheight( )/setheight( )
 Length             | getlength( )/setlength( )
 Weight             | getweight( )/setweight( )
@@ -92,6 +92,23 @@ In the last example, computergame and vehicle are the subclasses of toy.
             def setlength(self,length):
             self.__setlength=length
             
+    class ComputerGame(Toy):
+        def __init__(self, name, id, price, minAge, category, console):
+            Toy.__init__(self, name, id, price, minAge)
+            self._category = category
+            self._console = console
+                
+        def getCategory(self):
+            return self._category
+            
+        def setCategory(self, category):
+            self._category = category
+            
+        def getConsole(self):
+            return self._console
+           
+        def setConsole(self, console):
+            self._console = console
             
 2.5
 
