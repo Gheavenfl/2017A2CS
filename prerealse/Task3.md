@@ -9,7 +9,7 @@ has_skill(habib,timetravel).
 
 ## Task 3.2
 
-characterpet(X,Y) IF character(X) AND pet(X,Y) AND NOT(pet(X,Z))  AND animal(Y)
+characterpet(X,Y) IF character(X) AND pet(X,Y)  AND animal(Y)
 
 
 ## Task 3.3
