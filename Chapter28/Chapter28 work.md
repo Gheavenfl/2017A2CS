@@ -37,15 +37,26 @@ CMP Max
 JPN LOOP
 
 28.04
-LDM  -1
+LDM  0
 STO Count
+LOOP:
+INC Count
+IN
+CMP #N
+JPN LOOP
 
 
+28.05
+LDM  0
+STO Count
+LOOP:
+INC Count
+IN
+CMP #N
+JPN LOOP
+OUT
 
-
-
-
-
+28.06
 
 
 

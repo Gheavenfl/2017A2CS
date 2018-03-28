@@ -4,50 +4,44 @@
 
 character(habib).
 character_type(habib,explorer).
-
+pet(habib,fish).
+has_skill(habib,timetravel).
 
 ## Task 3.2
 
-characterpet(X,Y) :-
+characterpet(X,Y) IF character(X) AND pet(X,Y) AND NOT(pet(X,Z))  AND animal(Y)
 
 
+## Task 3.3
 
-
-character(jim).
-character(jenny).
-character_type(jim,prince).
-character_type(jenny,princess).
-has_skill(jim,fly).
-has_skill(jenny,invisibility).
-pet(jim,horse).
-pet(jenny,bird).
-animal(horse).
-animal(bird).
-skill(fly).
-skill(invisibility).
-
-
-character(habib).
-animal(fish).
-skill(time_travel).
-
-pet(habib,fish).
-character_type(habib,explorer).
-has_skill(habib,timetravel).
-
-
-onlyonepet(X,Y) :-
-character(X),
-animal(Y).
-
-
+character(yang).
 character(rex).
-animal(dog).
-skill(singularity).
+character_type(yang,princess).
+character_type(rex,cleaner).
+has_skill(yang,play).
+has_skill(rex,clean).
+pet(yang,pig).
+pet(rex,penguin).
+animal(pig).
+animal(penguin).
+skill(play).
+skill(clean).
 
-pet(rex,dog).
-character_type(rex,scientist).
-has_skill(rex,singularity).
+## Task 3.4
+
+True
+princess
+jim
+invisibility
+jim
+
+## Task 3.5
+
+pet(jim,X).
+has_skill(X,fly).
+skill(X).
+character_type(X,princess),pet(X,Y).
+
 
 
 
