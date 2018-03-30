@@ -58,6 +58,14 @@ OUT
 
 28.06
 
+LDM  0
+STO Count
+LOOP:
+INC Count
+IN
+STO 
+JPN LOOP
+OUT
 
 
 
