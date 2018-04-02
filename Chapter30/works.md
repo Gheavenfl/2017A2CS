@@ -1,19 +1,17 @@
 ## Task
 
 
-Task 30.01
+## Task 30.01
 
-1.test data for number-guessing game
-normal test data: 17
-abnormal test data: ?
-extreme test data: 10000000
+normal test data: 17 abnormal test data: ? extreme test data: 10000000
 
-2.test data for Connect 4 game
+2.
+test data for Connect 4 game
 normal test data: row: 3, column 4
 abnormal test data: row: 20, column 15
 extreme test data: row: 6, column 7
 
-End of chapter questions
+## End of chapter questions
 Question 1
 normal test data: OuputTallyRow(12) This is a normal test because the input NumberToDraw is 12, which is an integer.
 
